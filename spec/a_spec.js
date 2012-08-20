@@ -1,9 +1,11 @@
 var board, empty,
 
-    TicTacToe = {
-        play: function() {
-            board = [['x'], [], []];
-        }
+    TicTacToe = function() {
+        return {
+            play: function() {
+                board = [['x'], [], []];
+            }
+        };
     };
 
 describe("noughts and crosses", function() {
@@ -12,7 +14,7 @@ describe("noughts and crosses", function() {
     });
 
     it("puts the cross on top left position", function() {
-        TicTacToe.play('x',0,0);
+        TicTacToe().play('x',0,0);
         expect(board).toEqual([['x'],[],[]]);
     });
 });

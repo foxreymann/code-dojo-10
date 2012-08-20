@@ -20,4 +20,9 @@ describe("noughts and crosses", function() {
         ticTacToe.play('o', 1, 2);
         expect(ticTacToe.board()).toEqual([['x'], [], [undefined, 'o']]);
     });
+
+    it("check if crosses didn't win after first move", function() {
+        var ticTacToe = TicTacToe();
+        expect(ticTacToe.play('x', 0, 0)).toEqual(false);
+    });
 });

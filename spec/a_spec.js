@@ -10,33 +10,33 @@ describe("noughts and crosses", function() {
 
     it("puts the cross on top left position", function() {
         var ticTacToe = TicTacToe();
-        ticTacToe.play('x', 0, 0);
+        ticTacToe.play('x', {x: 0, y: 0});
         expect(ticTacToe.board()).toEqual([['x'], [], []]);
     });
 
     it("plays two moves by placing X then O", function() {
         var ticTacToe = TicTacToe();
-        ticTacToe.play('x', 0, 0);
-        ticTacToe.play('o', 1, 2);
+        ticTacToe.play('x', {x: 0, y: 0});
+        ticTacToe.play('o', {x: 1, y: 2});
         expect(ticTacToe.board()).toEqual([['x'], [], [undefined, 'o']]);
     });
 
     it("does not allow a player to play on a position that is already taken", function() {
         var ticTacToe = TicTacToe();
-        ticTacToe.play('x', 1, 1);
-        ticTacToe.play('o', 2, 1);
-        expect(function() { ticTacToe.play('x', 2, 1) }).toThrow("position is taken");
+        ticTacToe.play('x', {x: 1, y: 1});
+        ticTacToe.play('o', {x: 2, y: 1});
+        expect(function() { ticTacToe.play('x', {x: 2, y: 1}) }).toThrow("position is taken");
     });
 
     it("check if crosses didn't win after first move", function() {
         var ticTacToe = TicTacToe();
-        expect(ticTacToe.play('x', 0, 0)).toEqual(false);
+        expect(ticTacToe.play('x', {x: 0, y: 0})).toEqual(false);
     });
 
     it("check if crosses won with horizontal line in first row", function() {
         var ticTacToe = TicTacToe();
-        expect(ticTacToe.play('x', 0, 0)).toEqual(false);
-        expect(ticTacToe.play('x', 1, 0)).toEqual(false);
-        expect(ticTacToe.play('x', 2, 0)).toEqual("crosses won");
+        expect(ticTacToe.play('x', {x: 0, y: 0})).toEqual(false);
+        expect(ticTacToe.play('x', {x: 1, y: 0})).toEqual(false);
+        expect(ticTacToe.play('x', {x: 2, y: 0})).toEqual("crosses won");
     });
 });

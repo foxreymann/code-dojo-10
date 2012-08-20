@@ -1,12 +1,22 @@
 exports.TicTacToe = function() {
     var board = [[],[],[]];
+    var lastPlayer = 'o';
+    
+    var nextPlayer = function() {
+        if(lastPlayer == 'o') {
+            lastPlayer = 'x';
+        } else {
+            lastPlayer = 'o';
+        }
+        return lastPlayer;
+    } 
 
     return {
-        play: function(player, coordinates) {
+        play: function(coordinates) {
             var x = coordinates.x,
                 y = coordinates.y;
             if (typeof board[y][x] == 'undefined') {
-                board[y][x] = player;
+                board[y][x] = nextPlayer();
             } else {
                 throw "position is taken";
             }

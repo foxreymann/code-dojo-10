@@ -41,4 +41,13 @@ describe("noughts and crosses", function() {
         expect(ticTacToe.play({x: 1, y: 1})).toEqual(false);
         expect(ticTacToe.play({x: 2, y: 0})).toEqual("crosses won");
     });
+
+    it("check if crosses won with horizontal line in second  row", function() {
+        var ticTacToe = TicTacToe();
+        expect(ticTacToe.play({x: 2, y: 1})).toEqual(false);
+        expect(ticTacToe.play({x: 0, y: 2})).toEqual(false);
+        expect(ticTacToe.play({x: 1, y: 1})).toEqual(false);
+        expect(ticTacToe.play({x: 1, y: 2})).toEqual(false);
+        expect(ticTacToe.play({x: 0, y: 1})).toEqual("crosses won");
+    });
 });

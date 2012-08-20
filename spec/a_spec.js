@@ -42,7 +42,7 @@ describe("noughts and crosses", function() {
         expect(ticTacToe.play({x: 2, y: 0})).toEqual("X won");
     });
 
-    it("check if a player won with horizontal line in second row", function() {
+    it("check if a player won with horizontal line in secoind row", function() {
         var ticTacToe = TicTacToe();
         expect(ticTacToe.play({x: 2, y: 0})).toEqual(false);
         expect(ticTacToe.play({x: 2, y: 1})).toEqual(false);
@@ -50,5 +50,34 @@ describe("noughts and crosses", function() {
         expect(ticTacToe.play({x: 1, y: 1})).toEqual(false);
         expect(ticTacToe.play({x: 1, y: 2})).toEqual(false);
         expect(ticTacToe.play({x: 0, y: 1})).toEqual("O won");
+    });
+
+    it("check if a player won with vertical line in first column", function() {
+        var ticTacToe = TicTacToe();
+        expect(ticTacToe.play({x: 1, y: 0})).toEqual(false);
+        expect(ticTacToe.play({x: 0, y: 0})).toEqual(false);
+        expect(ticTacToe.play({x: 1, y: 2})).toEqual(false);
+        expect(ticTacToe.play({x: 0, y: 1})).toEqual(false);
+        expect(ticTacToe.play({x: 2, y: 2})).toEqual(false);
+        expect(ticTacToe.play({x: 0, y: 2})).toEqual("O won");
+    });
+
+    it("check if a player won with vertical line in second column", function() {
+        var ticTacToe = TicTacToe();
+        expect(ticTacToe.play({x: 1, y: 0})).toEqual(false);
+        expect(ticTacToe.play({x: 2, y: 2})).toEqual(false);
+        expect(ticTacToe.play({x: 1, y: 1})).toEqual(false);
+        expect(ticTacToe.play({x: 0, y: 2})).toEqual(false);
+        expect(ticTacToe.play({x: 1, y: 2})).toEqual("X won");
+    });
+
+    it("check if a player won with vertical line in third column", function() {
+        var ticTacToe = TicTacToe();
+        expect(ticTacToe.play({x: 1, y: 0})).toEqual(false);
+        expect(ticTacToe.play({x: 2, y: 1})).toEqual(false);
+        expect(ticTacToe.play({x: 0, y: 2})).toEqual(false);
+        expect(ticTacToe.play({x: 2, y: 0})).toEqual(false);
+        expect(ticTacToe.play({x: 0, y: 1})).toEqual(false);
+        expect(ticTacToe.play({x: 2, y: 2})).toEqual("O won");
     });
 });

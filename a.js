@@ -9,13 +9,19 @@ exports.TicTacToe = function() {
             lastPlayer = 'O';
         }
         return lastPlayer;
-    }
+    };
     
     var checkHorizontalLine = function() {
         return board[0][0] == lastPlayer && board[0][1] == lastPlayer && board[0][2] == lastPlayer
             || board[1][0] == lastPlayer && board[1][1] == lastPlayer && board[1][2] == lastPlayer
             || board[2][0] == lastPlayer && board[2][1] == lastPlayer && board[2][2] == lastPlayer;
-    }
+    };
+
+    var checkVerticalLine = function() {
+        return board[0][0] == lastPlayer && board[1][0] == lastPlayer && board[2][0] == lastPlayer
+            || board[0][1] == lastPlayer && board[1][1] == lastPlayer && board[2][1] == lastPlayer
+            || board[0][2] == lastPlayer && board[1][2] == lastPlayer && board[2][2] == lastPlayer;
+    };
 
     return {
         play: function(coordinates) {
@@ -27,7 +33,7 @@ exports.TicTacToe = function() {
                 throw "position is taken";
             }
 
-            if(checkHorizontalLine()) {
+            if (checkHorizontalLine() || checkVerticalLine()) {
                 return lastPlayer + ' won';
             }
 

@@ -11,20 +11,27 @@ exports.TicTacToe = function() {
         return lastPlayer;
     };
     
-    var checkHorizontalLine = function() {
-        return board[0][0] == lastPlayer && board[0][1] == lastPlayer && board[0][2] == lastPlayer
-            || board[1][0] == lastPlayer && board[1][1] == lastPlayer && board[1][2] == lastPlayer
-            || board[2][0] == lastPlayer && board[2][1] == lastPlayer && board[2][2] == lastPlayer;
+    var checkHorizontalLine = function(board) {
+        return board[0][0] && board[0][1] && board[0][2]
+            || board[1][0] && board[1][1] && board[1][2]
+            || board[2][0] && board[2][1] && board[2][2];
     };
 
-    var checkVerticalLine = function() {
-        return board[0][0] == lastPlayer && board[1][0] == lastPlayer && board[2][0] == lastPlayer
-            || board[0][1] == lastPlayer && board[1][1] == lastPlayer && board[2][1] == lastPlayer
-            || board[0][2] == lastPlayer && board[1][2] == lastPlayer && board[2][2] == lastPlayer;
+    var checkVerticalLine = function(board) {
+        return board[0][0] && board[1][0] && board[2][0]
+            || board[0][1] && board[1][1] && board[2][1]
+            || board[0][2] && board[1][2] && board[2][2];
+    };
+
+    var boardFor = function(player) {
+        return board.map(function(row) {
+            return row.map(function(cell) { return cell === player; });
+        });
     };
 
     var checkForWinner = function() {
-        return checkHorizontalLine() || checkVerticalLine();
+        var playerBoard = boardFor(lastPlayer);
+        return checkHorizontalLine(playerBoard) || checkVerticalLine(playerBoard);
     };
 
     return {

@@ -1,15 +1,21 @@
 exports.TicTacToe = function() {
     var board = [[],[],[]];
-    var lastPlayer = 'o';
+    var lastPlayer = 'O';
     
     var nextPlayer = function() {
-        if(lastPlayer == 'o') {
-            lastPlayer = 'x';
+        if(lastPlayer == 'O') {
+            lastPlayer = 'X';
         } else {
-            lastPlayer = 'o';
+            lastPlayer = 'O';
         }
         return lastPlayer;
-    } 
+    }
+    
+    var checkHorizontalLine = function() {
+        return board[0][0] == lastPlayer && board[0][1] == lastPlayer && board[0][2] == lastPlayer
+            || board[1][0] == lastPlayer && board[1][1] == lastPlayer && board[1][2] == lastPlayer
+            || board[2][0] == lastPlayer && board[2][1] == lastPlayer && board[2][2] == lastPlayer;
+    }
 
     return {
         play: function(coordinates) {
@@ -20,10 +26,12 @@ exports.TicTacToe = function() {
             } else {
                 throw "position is taken";
             }
-            return board[0][0] && board[0][1] && board[0][2]
-                || board[1][0] && board[1][1] && board[1][2]
-                || board[2][0] && board[2][1] && board[2][2]
-                ? "crosses won" : false;
+
+            if(checkHorizontalLine()) {
+                return lastPlayer + ' won';
+            }
+
+            return false;
         },
         board: function() { return board; }
     };

@@ -1,8 +1,7 @@
-var dojo = require('../a');
+var board, empty;
 
-describe("dojo", function() {
-    it("recognises that main returns true", function() {
-        expect(dojo.main()).toEqual(true);
+describe("noughts and crosses", function() {
+    it("starts with an empty board", function() {
+        expect(board).toBe(empty);
     });
-
 });

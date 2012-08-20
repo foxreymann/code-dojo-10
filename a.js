@@ -1,3 +1,2 @@
-exports.main = function() {
-    return true;
-}
+exports.TicTacToe = function() {
+};

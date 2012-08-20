@@ -23,6 +23,10 @@ exports.TicTacToe = function() {
             || board[0][2] == lastPlayer && board[1][2] == lastPlayer && board[2][2] == lastPlayer;
     };
 
+    var checkForWinner = function() {
+        return checkHorizontalLine() || checkVerticalLine();
+    };
+
     return {
         play: function(coordinates) {
             var x = coordinates.x,
@@ -33,11 +37,7 @@ exports.TicTacToe = function() {
                 throw "position is taken";
             }
 
-            if (checkHorizontalLine() || checkVerticalLine()) {
-                return lastPlayer + ' won';
-            }
-
-            return false;
+            return checkForWinner() ? lastPlayer + " won" : false;
         },
         board: function() { return board; }
     };

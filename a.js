@@ -1,9 +1,9 @@
 exports.TicTacToe = function() {
-    var board;
+    var board = [[],[],[]];
 
     return {
-        play: function() {
-            board = [['x'], [], []];
+        play: function(player,x,y) {
+            board[y][x] = player;
         },
         board: function() { return board; }
     };

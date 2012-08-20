@@ -23,6 +23,10 @@ exports.TicTacToe = function() {
             || board[0][2] && board[1][2] && board[2][2];
     };
 
+    var checkForFirstDiagonal = function(board) {
+        return board[0][0] && board[1][1] && board[2][2];
+    };
+
     var boardFor = function(player) {
         return board.map(function(row) {
             return row.map(function(cell) { return cell === player; });
@@ -31,7 +35,7 @@ exports.TicTacToe = function() {
 
     var checkForWinner = function() {
         var playerBoard = boardFor(lastPlayer);
-        return checkHorizontalLine(playerBoard) || checkVerticalLine(playerBoard);
+        return checkHorizontalLine(playerBoard) || checkVerticalLine(playerBoard) || checkForFirstDiagonal(playerBoard);
     };
 
     return {

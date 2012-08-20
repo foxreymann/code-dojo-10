@@ -81,6 +81,16 @@ describe("noughts and crosses", function() {
         expect(ticTacToe.play({x: 2, y: 2})).toEqual("O won");
     });
 
+    it("check if a player O won with top left to bottom rights diagonal line in third column", function() {
+        var ticTacToe = TicTacToe();
+        expect(ticTacToe.play({x: 1, y: 0})).toEqual(false);
+        expect(ticTacToe.play({x: 0, y: 0})).toEqual(false);
+        expect(ticTacToe.play({x: 1, y: 2})).toEqual(false);
+        expect(ticTacToe.play({x: 1, y: 1})).toEqual(false);
+        expect(ticTacToe.play({x: 0, y: 2})).toEqual(false);
+        expect(ticTacToe.play({x: 2, y: 2})).toEqual("O won");
+    });
+
     it("should not report a win if there is a row or column with both players", function() {
         var ticTacToe = TicTacToe();
         expect(ticTacToe.play({x: 0, y: 2})).toEqual(false);

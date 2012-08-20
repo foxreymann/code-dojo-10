@@ -32,4 +32,11 @@ describe("noughts and crosses", function() {
         var ticTacToe = TicTacToe();
         expect(ticTacToe.play('x', 0, 0)).toEqual(false);
     });
+
+    it("check if crosses won with horizontal line in first row", function() {
+        var ticTacToe = TicTacToe();
+        expect(ticTacToe.play('x', 0, 0)).toEqual(false);
+        expect(ticTacToe.play('x', 1, 0)).toEqual(false);
+        expect(ticTacToe.play('x', 2, 0)).toEqual("crosses won");
+    });
 });

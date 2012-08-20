@@ -3,7 +3,11 @@ exports.TicTacToe = function() {
 
     return {
         play: function(player,x,y) {
-            board[y][x] = player;
+            if(typeof board[y][x] == 'undefined') {
+                board[y][x] = player;
+            } else {
+                throw "position is taken";
+            }
             return false;
         },
         board: function() { return board; }

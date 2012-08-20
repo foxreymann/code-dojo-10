@@ -21,6 +21,13 @@ describe("noughts and crosses", function() {
         expect(ticTacToe.board()).toEqual([['x'], [], [undefined, 'o']]);
     });
 
+    it("does not allow a player to play on a position that is already taken", function() {
+        var ticTacToe = TicTacToe();
+        ticTacToe.play('x', 1, 1);
+        ticTacToe.play('o', 2, 1);
+        expect(function() { ticTacToe.play('x', 2, 1) }).toThrow();
+    });
+
     it("check if crosses didn't win after first move", function() {
         var ticTacToe = TicTacToe();
         expect(ticTacToe.play('x', 0, 0)).toEqual(false);

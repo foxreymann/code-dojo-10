@@ -25,7 +25,7 @@ describe("noughts and crosses", function() {
         var ticTacToe = TicTacToe();
         ticTacToe.play('x', 1, 1);
         ticTacToe.play('o', 2, 1);
-        expect(function() { ticTacToe.play('x', 2, 1) }).toThrow();
+        expect(function() { ticTacToe.play('x', 2, 1) }).toThrow("position is taken");
     });
 
     it("check if crosses didn't win after first move", function() {

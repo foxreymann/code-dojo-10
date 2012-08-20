@@ -1,15 +1,6 @@
-var empty,
+var TicTacToe = require('../a').TicTacToe;
 
-    TicTacToe = function() {
-        var board;
-
-        return {
-            play: function() {
-                board = [['x'], [], []];
-            },
-            board: function() { return board; }
-        };
-    };
+var empty;
 
 describe("noughts and crosses", function() {
     it("starts with an empty board", function() {

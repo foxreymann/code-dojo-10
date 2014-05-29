@@ -1,6 +1,6 @@
 # Task
 
-Tic tac toe game created in TDD manner
+Tic-tac-toe game created in TDD manner
 
 # Run
 
